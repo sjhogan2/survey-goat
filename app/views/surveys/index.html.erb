@@ -3,6 +3,8 @@
 <% @surveys.each do | survey | %>
   <td>
     <%= "#{survey.title}" %>
+    <%= link_to "View Survey", survey_path(survey) %>
+    <%= link_to "Edit Survey", edit_survey_path(survey) %>
   </td>
 <% end %>
 

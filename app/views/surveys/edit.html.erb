@@ -1,2 +1,19 @@
 <h1>Survey#edit</h1>
-<p>Find me in app/views/survey/edit.html.erb</p>
+<p> <%= "#{@survey.title}" %> </p>
+
+<%= link_to "Delete this Survey", @survey, method: :delete, data: { confirm: "Are you sure?" } %>
+
+<%= form_for @survey, url: survey_path(@survey), method: :patch do |f| %>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+
