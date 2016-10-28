@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :surveys
+  resources :surveys do
+    resources :questions, only: [:new, :create, :update, :destroy]
+  end
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

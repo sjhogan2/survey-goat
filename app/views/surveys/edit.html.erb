@@ -3,7 +3,7 @@
 
 <%= link_to "Delete this Survey", @survey, method: :delete, data: { confirm: "Are you sure?" } %>
 
-<%= form_for @survey, url: survey_path(@survey), method: :patch do |f| %>
+<%= form_for @survey, url: survey_path(@survey), method: :patch, html: {class: "edit-survey"} do |f| %>
 
   <p>
     <%= f.label :title %><br>
@@ -14,6 +14,9 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<%= render '/questions/create', survey_id: @survey.id %>
+
 
 
 

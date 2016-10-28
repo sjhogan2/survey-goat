@@ -1,5 +1,7 @@
 class SurveysController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
   def index
     @surveys = Survey.all
   end
@@ -23,7 +25,7 @@ class SurveysController < ApplicationController
     @survey.save!
 
     if @survey.save
-      redirect_to surveys_path
+      redirect_to edit_survey_path(@survey)
     else
       render :new
     end

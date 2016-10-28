@@ -1,0 +1,12 @@
+<%= form_for :question, url: survey_questions_path(:survey_id), html: {class: "new-question"} do |f| %>
+  <p>
+    <%= f.label :question %><br>
+    <%= f.text_field :question %>
+  </p>
+
+  <p>
+    <%= f.label :type %><br>
+    <%= f.select :kind, options_for_select(["Plain Text", "MC", "SC"]) %>
+  </p>
+  <%= hidden_field_tag :survey_id, survey_id %>
+<% end %>
