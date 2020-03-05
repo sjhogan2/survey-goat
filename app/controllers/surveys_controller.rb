@@ -1,4 +1,5 @@
 class SurveysController < ApplicationController
+
   def index
     @surveys = Survey.all
   end
@@ -17,6 +18,9 @@ class SurveysController < ApplicationController
 
   def create
     @survey = Survey.new(survey_params)
+    @user = current_user
+    @survey.user = @user
+    @survey.save!
 
     if @survey.save
       redirect_to surveys_path
